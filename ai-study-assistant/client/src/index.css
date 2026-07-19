@@ -1,0 +1,40 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-text-muted/10;
+  }
+
+  body {
+    @apply font-body antialiased;
+  }
+
+  h1,
+  h2,
+  h3 {
+    @apply font-display;
+  }
+}
+
+/* Print: hide everything except the study content itself (nav, input
+   form, buttons, history sidebar are all irrelevant on paper). The
+   #printable-content wrapper is set in App.jsx around the results only. */
+@media print {
+  body * {
+    visibility: hidden;
+  }
+
+  #printable-content,
+  #printable-content * {
+    visibility: visible;
+  }
+
+  #printable-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+}
